@@ -9,18 +9,18 @@ module Recipe
   def self.run(argv)
     Option.new(argv).parse!
     configuration.require_keys!(*REQUIRED_KEYS)
-    binding.pry;
 
     rows = if id = configuration[:recipe_id]
-             [Mapping.find(id)]
+             [Mapping::Recipe.find(id)]
            else
-             Mapping.data
+             Mapping::Recipe.all
            end
 
     rows.each do |row|
       puts <<-STR.gsub(/^\s{6}/, '')
-      #{row['id']}: #{row['name']}
-      #{row['description']}
+      #{row.user.user_name}
+      #{row.id}: #{row.name}
+      #{row.description}
 
       STR
     end
