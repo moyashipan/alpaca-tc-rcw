@@ -14,9 +14,28 @@ $ cd path/to/alpaca-tc-rcw
 $ ./bin/recipe --path data/recipes.yml
 ```
 
-## 引数
+## Help
 
-**--path**
+```
+$ ./bin/recipe --help
+```
 
-読み込むレシピ情報を指定します。
-読み込み可能なファイルはyamlデータになります。
+## レシピ情報
+
+- ファイル形式: [yaml](http://magazine.rubyist.net/?0009-YAML)
+- id, name, descriptionというキーを持つハッシュの配列が定義されている必要があります。
+
+```
+-
+  id: 1
+  name: 名前
+  description: 説明
+- 
+  id: 2
+  name: 名前
+  description: 説明
+- 
+  id: 3
+  name: 名前
+  description: 説明
+```

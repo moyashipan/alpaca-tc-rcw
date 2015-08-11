@@ -17,7 +17,11 @@ module Recipe
            end
 
     rows.each do |row|
-      puts "#{row['id']}: #{row['name']}"
+      puts <<-STR.gsub(/^\s{6}/, '')
+      #{row['id']}: #{row['name']}
+      #{row['description']}
+
+      STR
     end
   end
 

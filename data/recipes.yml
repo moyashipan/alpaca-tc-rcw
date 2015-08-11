@@ -1,9 +1,12 @@
 -
   id: 1
   name: オムライス
+  description: 卵を焼いてごはんにのせる
 -
   id: 2
   name: 親子丼
+  description: 鶏肉を焼いて卵でとじてごはんにのせる
 -
   id: 3
   name: 杏仁豆腐
+  description: 牛乳と砂糖をまぜてゼラチンで固める
