@@ -9,9 +9,5 @@ module Recipe
     def self.data
       @data ||= YAML.load_file(::Recipe.configuration[:recipe_path])
     end
-
-    def self.find(id)
-      data.find { |row| row['id'] == id }
-    end
   end
 end
