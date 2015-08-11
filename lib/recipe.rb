@@ -10,7 +10,13 @@ module Recipe
     Option.new(argv).parse!
     configuration.require_keys!(*REQUIRED_KEYS)
 
-    Data.mapping.each do |row|
+    rows = if id = configuration[:recipe_id]
+             [Data.find(id)]
+           else
+             Data.mapping
+           end
+
+    rows.each do |row|
       puts "#{row['id']}: #{row['name']}"
     end
   end

@@ -9,6 +9,10 @@ module Recipe
     def parse!
       opts = OptionParser.new
 
+      opts.on('-i', '--id [Recipe ID]', Integer) do |id|
+        configuration[:recipe_id] = id
+      end
+
       opts.on('--path [Recipe YAML DATA]') do |path|
         configuration[:recipe_path] = path
       end
