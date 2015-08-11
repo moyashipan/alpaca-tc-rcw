@@ -11,7 +11,7 @@ module Recipe
     configuration.require_keys!(*REQUIRED_KEYS)
 
     Data.mapping.each do |row|
-      puts row['name']
+      puts "#{row['id']}: #{row['name']}"
     end
   end
 
