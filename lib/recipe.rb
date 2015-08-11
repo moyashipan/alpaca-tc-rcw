@@ -1,5 +1,5 @@
 require 'recipe/version'
-require 'recipe/data'
+require 'recipe/mapping'
 require 'recipe/configuration'
 require 'recipe/option'
 
@@ -9,11 +9,12 @@ module Recipe
   def self.run(argv)
     Option.new(argv).parse!
     configuration.require_keys!(*REQUIRED_KEYS)
+    binding.pry;
 
     rows = if id = configuration[:recipe_id]
-             [Data.find(id)]
+             [Mapping.find(id)]
            else
-             Data.mapping
+             Mapping.data
            end
 
     rows.each do |row|
