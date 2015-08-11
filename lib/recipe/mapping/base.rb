@@ -12,10 +12,6 @@ module Recipe
           all.find { |row| row['id'] == id }
         end
 
-        def from_attributes(*attributes)
-          new(*attributes)
-        end
-
         def attr_reader(*attributes)
           attributes.each do |attr|
             define_attribute_method(attr)
@@ -46,18 +42,8 @@ module Recipe
       end
 
       def [](key)
+        # indifferent access
         @attributes[key.to_sym] || @attributes[key.to_s]
-      end
-
-      private
-
-      def attributes_for_object(key1, key2=nil)
-        if key2.nil?
-          self[key1]
-        else
-          attributes = @attributes.dup
-          attributes.delete(key1).merge(key2 => attributes)
-        end
       end
     end
   end
