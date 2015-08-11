@@ -2,10 +2,10 @@ module Recipe
   class Mapping
     class Base
       class << self
-        attr_accessor :record_name
+        attr_accessor :mapping_key
 
         def all
-          Mapping.data[record_name].map { |attributes| new(attributes) }
+          Mapping.data[mapping_key].map { |attributes| new(attributes) }
         end
 
         def find(id)
